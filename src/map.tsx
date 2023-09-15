@@ -362,7 +362,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
         if (!context) {
           return;
         }
-
+        console.log('1')
         // Clear the entire canvas
         const p1 = context.transformedPoint(0, 0);
         const p2 = context.transformedPoint(
@@ -380,7 +380,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
           canvasRef.current.height
         );
         context.restore();
-
+        console.log('2')
         if (mapImage.current && mapImageValid.current) {
           context.drawImage(
             mapImage.current,
@@ -395,6 +395,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
           context.getTransform().a,
           context.getTransform().d
         );
+        console.log('3')
         const renderMarkers = (child: React.ReactElement) => {
           const {
             coords,
@@ -466,7 +467,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
             centreY 
           );
         };
-
+        console.log('4')
         const draggingMarker = getMarkerChild(draggingMarkerKey.current || "");
         markers.current
           .filter((child) => child !== draggingMarker)
