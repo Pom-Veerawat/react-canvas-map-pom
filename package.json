@@ -1,10 +1,10 @@
 {
-  "name": "react-canvas-map",
-  "version": "0.3.1",
+  "name": "react-canvas-map-pom",
+  "version": "0.0.1",
   "description": "An interactive canvas-based map component for React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "repository": "git@github.com:bor3ham/react-canvas-map.git",
+  "repository": "git@/Pom-Veerawat/react-canvas-map-pom.git",
   "author": "Michael Boreham",
   "license": "MIT",
   "private": false,
