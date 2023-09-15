@@ -406,6 +406,12 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
             circleColour = "#337ab7",
             size = 100,
             scaleWithZoom = true,
+            title="title",
+            description="des",
+            fontSize=40,
+            fontFamily="sans-serif",
+            offsetX=10,
+            offsetY=10
           } = child.props;
 
           if (!markerImage) {
@@ -461,11 +467,16 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
             
             
           }
-          context.font = "20px serif";
+          context.font = fontSize+"px "+fontFamily;
           context.fillText(
-            "Hello World",
-            centreX ,
-            centreY 
+            title,
+            centreX +offsetX,
+            centreY +offsetY
+          );
+          context.fillText(
+            description,
+            centreX +(offsetX*2),
+            centreY +(offsetY*2)
           );
         };
         console.log('4')

@@ -12,6 +12,15 @@ type MarkerProps = {
   size?: number
   scaleWithZoom?: boolean
 
+  title:string
+  color:string
+  description:string
+  numberDisplay:number
+  fontSize:number
+  fontFamily:string
+  offsetX:number
+  offsetY:number
+
   onClick?(): void
   onDoubleClick?(): void
 
