@@ -345,7 +345,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
 
     const lastRedraw = useRef(+new Date());
     const logRedraw = (reason: string) => {
-      return;
+      //return;
       const nowMs = +new Date();
       const idleMs = nowMs - lastRedraw.current;
       lastRedraw.current = nowMs;
@@ -353,10 +353,11 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
     };
     const redraw = useCallback(
       (reason: string) => {
-        console.log("inredraw");
+        console.log("inredraw123");
         if (!canvasRef.current) {
           return;
         }
+        console.log("inredraw456");
         logRedraw(reason);
         const context = extendContext(canvasRef.current.getContext("2d"));
         if (!context) {
