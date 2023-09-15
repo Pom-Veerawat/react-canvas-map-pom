@@ -350,6 +350,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(({
     console.log(`redrawing for ${reason} after ${idleMs}`)
   }
   const redraw = useCallback((reason: string) => {
+    console.log('inredraw')
     if (!canvasRef.current) {
       return
     }
