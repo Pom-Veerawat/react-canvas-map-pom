@@ -422,6 +422,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
           const centreX = coords.x;
           const centreY = coords.y;
           if (inCircle) {
+            console.log('true')
             const imageSize = scaledSize * 0.55;
             const renderWidth = imageSize * coverWidthScale;
             const renderHeight = imageSize * coverHeightScale;
@@ -445,6 +446,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderHeight
             );
           } else {
+            console.log('false')
             const renderWidth = scaledSize * coverWidthScale;
             const renderHeight = scaledSize * coverHeightScale;
             context.drawImage(
@@ -454,9 +456,10 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderWidth,
               renderHeight
             );
-            context.font = "20px serif";
+            
             
           }
+          context.font = "20px serif";
           context.fillText(
             "Hello World",
             centreX ,
