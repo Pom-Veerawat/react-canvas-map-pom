@@ -109,3 +109,4 @@ _site/
 
 # Mac bs
 .DS_Store
+scripts/esbuild-config.js
