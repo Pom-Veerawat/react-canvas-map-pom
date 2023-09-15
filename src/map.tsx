@@ -455,12 +455,13 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderHeight
             );
             context.font = "20px serif";
-            context.fillText(
-              "Hello world",
-              centreX - renderWidth / 2,
-              centreY - renderHeight / 2
-            );
+            
           }
+          context.fillText(
+            "Hello World",
+            centreX ,
+            centreY 
+          );
         };
 
         const draggingMarker = getMarkerChild(draggingMarkerKey.current || "");
