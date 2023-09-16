@@ -411,7 +411,8 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
             fontSize=40,
             fontFamily="sans-serif",
             offsetX=10,
-            offsetY=10
+            offsetY=10,
+            numberDisplay=1,
           } = child.props;
 
           if (!markerImage) {
@@ -470,13 +471,18 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
           context.font = fontSize+"px "+fontFamily;
           context.fillText(
             title,
-            centreX +offsetX,
-            centreY +offsetY
+            centreX-(offsetX) ,
+            centreY -(offsetY)
           );
           context.fillText(
             description,
-            centreX +(offsetX*2),
-            centreY +(offsetY*2)
+            centreX +(offsetX),
+            centreY +(offsetY)
+          );
+          context.fillText(
+            numberDisplay,
+            centreX ,
+            centreY
           );
         };
         console.log('4')
