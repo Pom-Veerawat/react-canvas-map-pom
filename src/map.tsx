@@ -363,7 +363,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
         if (!context) {
           return;
         }
-        console.log('1')
+        console.log("1");
         // Clear the entire canvas
         const p1 = context.transformedPoint(0, 0);
         const p2 = context.transformedPoint(
@@ -381,7 +381,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
           canvasRef.current.height
         );
         context.restore();
-        console.log('2')
+        console.log("2");
         if (mapImage.current && mapImageValid.current) {
           context.drawImage(
             mapImage.current,
@@ -396,7 +396,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
           context.getTransform().a,
           context.getTransform().d
         );
-        console.log('3')
+        console.log("3");
         const renderMarkers = (child: React.ReactElement) => {
           const {
             coords,
@@ -406,13 +406,13 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
             circleColour = "#337ab7",
             size = 100,
             scaleWithZoom = true,
-            title="title",
-            description="des",
-            fontSize=40,
-            fontFamily="sans-serif",
-            offsetX=10,
-            offsetY=10,
-            numberDisplay=1,
+            title = "title",
+            description = "des",
+            fontSize = 40,
+            fontFamily = "sans-serif",
+            offsetX = 10,
+            offsetY = 10,
+            numberDisplay = 1,
           } = child.props;
 
           if (!markerImage) {
@@ -431,7 +431,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
           const centreX = coords.x;
           const centreY = coords.y;
           if (inCircle) {
-            console.log('true')
+            console.log("true");
             const imageSize = scaledSize * 0.55;
             const renderWidth = imageSize * coverWidthScale;
             const renderHeight = imageSize * coverHeightScale;
@@ -455,7 +455,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderHeight
             );
           } else {
-            console.log('false')
+            console.log("false");
             const renderWidth = scaledSize * coverWidthScale;
             const renderHeight = scaledSize * coverHeightScale;
             context.drawImage(
@@ -465,27 +465,13 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderWidth,
               renderHeight
             );
-            
-            
           }
-          context.font = fontSize+"px "+fontFamily;
-          context.fillText(
-            title,
-            centreX-(offsetX) ,
-            centreY -(offsetY)
-          );
-          context.fillText(
-            description,
-            centreX +(offsetX),
-            centreY +(offsetY)
-          );
-          context.fillText(
-            numberDisplay,
-            centreX ,
-            centreY
-          );
+          context.font = fontSize + "px " + fontFamily;
+          context.fillText(title, centreX - offsetX, centreY - offsetY);
+          context.fillText(description, centreX + offsetX, centreY + offsetY);
+          context.fillText(numberDisplay, centreX, centreY);
         };
-        console.log('4')
+        console.log("4");
         const draggingMarker = getMarkerChild(draggingMarkerKey.current || "");
         markers.current
           .filter((child) => child !== draggingMarker)
@@ -502,7 +488,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               height,
 
               label,
-              colour = "#fff",
+              colour = "#000000",
               backgroundColour = "#0f0",
               fontSize = 24,
               image: dropZoneImage,
