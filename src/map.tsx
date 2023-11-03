@@ -466,10 +466,12 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderHeight
             );
           }
+          context.fillStyle="#000000";
           context.font = fontSize + "px " + fontFamily;
           context.fillText(title, centreX - offsetX, centreY - offsetY);
           context.fillText(description, centreX + offsetX, centreY + offsetY);
           context.fillText(numberDisplay, centreX, centreY);
+          context.fillStyle= circleColour;
         };
         console.log("4");
         const draggingMarker = getMarkerChild(draggingMarkerKey.current || "");
