@@ -17,7 +17,7 @@ type MarkerProps = {
   description:string
   numberDisplay:number
   fontSize?:number
-  fontFamily:string
+  fontFamily?:string
   offsetX:number
   offsetY:number
 
