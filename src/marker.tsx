@@ -13,10 +13,10 @@ type MarkerProps = {
   scaleWithZoom?: boolean
   indexMarker:number
   title:string
-  color:string
+  color?:string
   description:string
   numberDisplay:number
-  fontSize:number
+  fontSize?:number
   fontFamily:string
   offsetX:number
   offsetY:number
