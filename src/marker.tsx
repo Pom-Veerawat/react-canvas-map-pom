@@ -11,7 +11,7 @@ type MarkerProps = {
   circleColour?: string
   size?: number
   scaleWithZoom?: boolean
-
+  indexMarker:number
   title:string
   color:string
   description:string
