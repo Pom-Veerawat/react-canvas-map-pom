@@ -4,6 +4,7 @@ import React, {
   useMemo,
   useCallback,
   useEffect,
+  useImperativeHandle,
 } from "react";
 
 import { extendContext } from "./extend-context";
@@ -35,6 +36,7 @@ type MapProps = {
   allowContainmentZoom?: boolean; // allow zooming beyond min/max if image is not contained
 
   panTo?: Coords;
+  manualredraw():void;
 };
 
 type ScreenPositionCoords = {
@@ -65,6 +67,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
       allowContainmentZoom = true,
 
       panTo,
+      manualredraw,
     },
     ref
   ) => {
@@ -554,6 +557,16 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
     useEffect(() => {
       redraw("new children");
     }, [flatChildren, redraw]);
+
+     manualredraw = ()=>{
+      console.log('clicked 123');
+    }
+   /*  useImperativeHandle(ref, () => ({
+      manualredraw() {
+        console.log('Hello from the child component!');
+      }
+    })); */
+    
 
     const resetView = useCallback(() => {
       if (!canvasRef.current) {
