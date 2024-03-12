@@ -413,6 +413,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
             offsetX = 10,
             offsetY = 10,
             numberDisplay = 1,
+            colorHexText="#0d0d0d",
           } = child.props;
 
           if (!markerImage) {
@@ -466,11 +467,14 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderHeight
             );
           }
-          context.fillStyle="#0d0d0d";
+         console.log("changecolor")
+          context.fillStyle=colorHexText
           context.font = fontSize + "px " + fontFamily;
           context.fillText(title, centreX - offsetX, centreY - offsetY);
           context.fillText(description, centreX + offsetX, centreY + offsetY);
           context.fillText(numberDisplay, centreX, centreY);
+          context.fillStyle=colorHexText
+          context.fillStyle="#0d0d0d";
          // context.fillStyle= circleColour;
         };
         console.log("4");

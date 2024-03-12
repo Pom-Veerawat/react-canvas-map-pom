@@ -1,6 +1,6 @@
 {
   "name": "react-canvas-map-pom",
-  "version": "0.0.5",
+  "version": "1.0.5",
   "description": "An interactive canvas-based map component for React.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

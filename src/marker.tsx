@@ -20,6 +20,7 @@ type MarkerProps = {
   fontFamily?:string
   offsetX:number
   offsetY:number
+  colorHexText:string
 
   onClick?(): void
   onDoubleClick?(): void
