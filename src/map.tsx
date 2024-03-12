@@ -36,7 +36,8 @@ type MapProps = {
   allowContainmentZoom?: boolean; // allow zooming beyond min/max if image is not contained
 
   panTo?: Coords;
-  manualredraw():void;
+
+  buttonRef?: React.RefObject<HTMLButtonElement>;
 };
 
 type ScreenPositionCoords = {
@@ -67,7 +68,8 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
       allowContainmentZoom = true,
 
       panTo,
-      manualredraw,
+
+      buttonRef,
     },
     ref
   ) => {
@@ -416,7 +418,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
             offsetX = 10,
             offsetY = 10,
             numberDisplay = 1,
-            colorHexText="#0d0d0d",
+            colorHexText = "#0d0d0d",
           } = child.props;
 
           if (!markerImage) {
@@ -470,15 +472,15 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
               renderHeight
             );
           }
-         console.log("changecolor")
-          context.fillStyle=colorHexText
+          console.log("changecolor");
+          context.fillStyle = colorHexText;
           context.font = fontSize + "px " + fontFamily;
           context.fillText(title, centreX - offsetX, centreY - offsetY);
           context.fillText(description, centreX + offsetX, centreY + offsetY);
           context.fillText(numberDisplay, centreX, centreY);
-          context.fillStyle=colorHexText
-          context.fillStyle="#0d0d0d";
-         // context.fillStyle= circleColour;
+          context.fillStyle = colorHexText;
+          context.fillStyle = "#0d0d0d";
+          // context.fillStyle= circleColour;
         };
         console.log("4");
         const draggingMarker = getMarkerChild(draggingMarkerKey.current || "");
@@ -558,16 +560,26 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
       redraw("new children");
     }, [flatChildren, redraw]);
 
-     manualredraw = ()=>{
-      console.log('clicked 123');
+    useEffect(() => {
+      const button = buttonRef?.current;
+      if (!button) {
+        return () => {};
+      }
+      button.addEventListener("click", manualredraw, false);
+      return () => {
+        button.removeEventListener("click", manualredraw, false);
+      };
+    }, [buttonRef]);
+
+    const manualredraw = () => {
+      console.log("clicked 123 manual resetview");
       resetView();
-    }
-   /*  useImperativeHandle(ref, () => ({
+    };
+    /*  useImperativeHandle(ref, () => ({
       manualredraw() {
         console.log('Hello from the child component!');
       }
     })); */
-    
 
     const resetView = useCallback(() => {
       if (!canvasRef.current) {
