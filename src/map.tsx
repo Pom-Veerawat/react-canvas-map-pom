@@ -560,6 +560,7 @@ const Map = React.forwardRef<HTMLCanvasElement, MapProps>(
 
      manualredraw = ()=>{
       console.log('clicked 123');
+      resetView();
     }
    /*  useImperativeHandle(ref, () => ({
       manualredraw() {
